@@ -1,0 +1,35 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div *ngFor="let evento of eventos">
+        <app-event [value]="evento"></app-event>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3 class="text-uppercase my-3">Agenda del día</h3>
+      <h6 class="my-3">
+        Será un día ocupado. Tienes agendado
+        <b> {{ eventos.length }} eventos </b> hoy
+      </h6>
+      <h1 class="my-3">
+        <div class="row">
+          <div class="col-3 text-center">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="col-9 ">Soleado</div>
+        </div>
+        <div class="row">
+          <div class="col-3 text-center">
+            <i class="fas fa-thermometer-three-quarters"></i>
+          </div>
+          <div class="col-3 ">23°C</div>
+        </div>
+      </h1>
+      <p>
+        No olvides tus lentes de sol. Hoy será un día soleado y seco, en la tarde bajará la temperatura entre 20°C y
+        25°C
+      </p>
+    </div>
+  </div>
+</div>

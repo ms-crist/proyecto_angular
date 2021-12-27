@@ -1,0 +1,42 @@
+<div class="row"
+  style="background-image: url(/assets/smart.jpg); background-size: cover; background-repeat: no-repeat;">
+  <div class="wrapper fadeInDown">
+    <h4 style="color:white">Bienvenido/a</h4> <br>
+    <h6 style="color: white;">Ingrese sus credenciales</h6>
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <!-- Icon -->
+
+
+      <div class="fadeIn first">
+
+        <img src="\assets\apple_saffari.png" style="width:12%; margin-top: 20%;" alt="">
+      </div>
+
+
+      <!-- Login Form -->
+      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <input formControlName="email" type="text" autocomplete="off" class="fadeIn second"
+          placeholder="correo@ejemplo.com">
+        <div class="mb-3" *ngIf="formLogin.get('email').errors && formLogin.get('email').dirty">
+          <span class="spanAlert" *ngIf="formLogin.get('email').hasError('required')">El Correo
+            es un campo
+            requerido</span>
+          <span class="spanAlert" *ngIf="formLogin.get('email').errors.pattern">
+            El formato del correo no es válido
+          </span>
+        </div>
+
+
+
+
+        <input formControlName="password" type="password" autocomplete="off" class="fadeIn third" id="password"
+          placeholder="*************">
+        <button style="width: 45%;" type="submit" [disabled]="!formLogin.valid"
+          class="fadeIn fourth; btn btn-secondary">Ingresar</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
