@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
     this._notification.showError("Ha cerrado sesión", "")
   }
 
-  seccionUsuarios() {
-    this._route.navigate(['/usuarios']);
+  seccionAgenda() {
+    this._route.navigate(['/evento']);
   }
 
 }

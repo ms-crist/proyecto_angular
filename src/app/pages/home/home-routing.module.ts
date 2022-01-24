@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClimaComponent } from './clima/clima.component';
 import { EventoComponent } from './component/evento.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home.component';
+import { NewsComponent } from './news/news.component';
 
 
 
@@ -20,6 +22,12 @@ const routes: Routes = [
       },
       {
         path: 'evento', component: EventoComponent
+      },
+      {
+        path: 'clima', component: ClimaComponent
+      },
+      {
+        path: 'news', component: NewsComponent, loadChildren: () => import('./news/news.module').then(m => m.NewsModule)
       }
 
     ]

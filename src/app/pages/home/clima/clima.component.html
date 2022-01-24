@@ -1,0 +1,73 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <span class="badge badge-primary">Home</span>
+
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <span class="badge badge-success">Clima</span>
+
+    </li>
+  </ol>
+</nav>
+<div class="overlay" *ngIf="!load">
+  <div class="spinner ">
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+  </div>
+</div>
+<div class="row g-0">
+  <div class="col-md-8">
+    <div class="card-body">
+      <h2 class="card-title" style="margin-left: 70%;">
+        Clima
+      </h2>
+      <div class="card border-info mb-3" style=" margin-left: 40%; width: 70%;">
+        <div class="card-header" *ngIf="load">
+          <i class="fas fa-map-marker-alt fa-2x"></i>
+          <div *ngFor="let info of climas | keyvalue |slice:1:2">
+            <h4>{{info.value}}</h4>
+            <p style="margin-top:20px;color: rgb(0, 0, 0);font-size: 30px;font-weight: 500;">
+              {{now|date:'hh:mm:ss'}}</p>
+            <p style="color: #000000;font-size:18px;margin-top: -20px;">{{now|date:'dd-MM- 
+                  yyyy'}}</p>
+          </div>
+        </div>
+        <div class="card-body" *ngIf="load">
+          <div class="temp">
+            <div id="icons">
+              <div>
+                <div>Temperatura</div> <br>
+                <h5 class="card-title"><i class="fas fa-thermometer-three-quarters fa-5x"></i></h5>
+                <div *ngFor="let info3 of climas | keyvalue |slice:6:7">
+                  <h5>{{info3.value}}°C</h5>
+                </div>
+              </div>
+              <div>
+                <div>Humedad</div> <br>
+                <h5 class="card-title"><i class="fas fa-tint fa-5x"></i></h5>
+                <div *ngFor="let info4 of climas | keyvalue |slice:4:5">
+                  <h5>{{info4.value}}%</h5>
+                </div>
+              </div>
+              <div *ngFor="let info5 of climas | keyvalue |slice:2:3;">
+                <div>Pronóstico</div> <br>
+                <div id="nomarchivo">
+                  <div class="col-lg-4 col-12"><img style="max-width: 100px;" class="img-fluid mb-2"
+                      src="{{resolverImagen()}}" alt="Imagen del clima">
+                  </div>
+                  <h5>{{info5.value | lowercase}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-text" *ngIf="load"><small class="text-muted">
+              <div *ngFor="let info2 of climas | keyvalue |slice:3:4">
+                <p>Última actualización {{info2.value}}</p>
+              </div>
+            </small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

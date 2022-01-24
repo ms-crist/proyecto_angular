@@ -1,0 +1,43 @@
+<div class="col-sm-12">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <span class="badge badge-primary">Home</span>
+
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <span class="badge badge-success">Noticias</span>
+
+      </li>
+    </ol>
+  </nav>
+</div>
+
+
+
+<div class="container-fluid mt-5">
+  <h6>{{fechahoy | date: 'fullDate'}}</h6>
+  <h2 style="text-align: center">Titulares</h2>
+  <div class="row">
+    <div *ngFor="let d of muestraTitulares" class="col-lg-3 mt-3 mb-3">
+      <div class="card text-center" style="height: 400px;">
+        <div class="card-header">
+          {{d.source.name}}
+        </div>
+        <div class="card-body">
+          <img src="{{d.urlToImage}}" alt="" width="45%">
+          <h6 class="card-title">{{d.title}}</h6>
+
+
+        </div>
+        <div class="card-footer text-muted">
+          <a href="{{d.url}}" target="_blank"><button type="button" class="btn btn-primary btn-sm mt-2">Leer
+              más</button></a> <br> <br>
+          Publicado: <br>
+          {{d.publishedAt |date: 'medium'}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AgendaService {
-  url = 'https://api.gael.cloud/general/public/clima/SCTB'
+export class ClimaService {
+  url = ' https://api.gael.cloud/general/public/clima/SCQN'
 
   constructor(
     private http: HttpClient
@@ -14,10 +14,11 @@ export class AgendaService {
   }
   getClima() {
     let header = new HttpHeaders()
-      .set('curl -X GET --header', 'Accept: application/json')
+      .set('type-content', 'aplication/json')
 
     return this.http.get(this.url, {
       headers: header
     });
   }
+
 }

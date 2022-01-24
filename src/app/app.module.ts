@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ContrasenaPipe } from './pipes/contrasena.pipe';
 import { EventoComponent } from './pages/home/component/evento.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(es);
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 @NgModule({
   declarations: [
@@ -20,9 +25,15 @@ import { EventoComponent } from './pages/home/component/evento.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
+    LoadingBarHttpClientModule
   ],
-  providers: [],
+  providers: [ContrasenaPipe,
+    { provide: LOCALE_ID, useValue: "es-ES" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

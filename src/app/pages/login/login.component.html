@@ -32,6 +32,14 @@
 
         <input formControlName="password" type="password" autocomplete="off" class="fadeIn third" id="password"
           placeholder="*************">
+        <div class="mb-3" *ngIf="formLogin.get('password').errors && formLogin.get('password').dirty">
+          <span class="spanAlert" *ngIf="formLogin.get('password').hasError('password')">La contraseña
+            es un campo
+            requerido</span>
+          <span class="spanAlert" *ngIf="formLogin.get('password').errors.pattern">
+            El formato de la contraseña no es válido
+          </span>
+        </div>
         <button style="width: 45%;" type="submit" [disabled]="!formLogin.valid"
           class="fadeIn fourth; btn btn-secondary">Ingresar</button>
       </form>
